@@ -2,6 +2,7 @@ package lab;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Random;
 
 import aima.core.agent.Agent;
 import aima.core.agent.EnvironmentState;
@@ -34,12 +35,22 @@ public class AmatriceEnvironmentState implements EnvironmentState, FullyObservab
 		int n = 300; // put a random value here!
 		this.state.clear();
 		
+		Random r = new Random();
+		
 		for (int i = 1; i < n; i++) {
 			this.state.put(i + "", LocationState.None);
+			if ( r.nextDouble() < 0.10) {
+		      	this.state.put(i + "", LocationState.Human);
+			}
+			else
+				if (r.nextDouble() < 0.33){
+					this.state.put(i + "", LocationState.Rock);
+				}
+				
+				
 			
 		}
 		
-		this.state.put((n -1) + "", LocationState.Human);
 		
 	}
 	
