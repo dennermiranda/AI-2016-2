@@ -64,6 +64,7 @@ public class AmatriceEnviroment extends AbstractEnvironment {
 				performance = performance +100;
 				
 				envState.setLocationState(currentLocation, LocationState.None);
+				
 				//Agent returns to the origin with the human
 				envState.setAgentLocation(agent, "1");
 				// delete state

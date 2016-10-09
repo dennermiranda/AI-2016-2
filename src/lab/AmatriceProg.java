@@ -23,7 +23,7 @@ public class AmatriceProg {
 		
 		env.addAgent(agent);
 		
-		env.step(10);
+		env.step(1500);
 		env.notifyViews("Performance=" + env.getPerformanceMeasure(agent));
 	}
 }
