@@ -74,6 +74,53 @@ public class AmatriceEnviroment extends AbstractEnvironment {
 		}
 		
 		if (ACTION_TURN_LEFT == action){
+			--performance;
+			
+			LocationState state = envState.getLocationState(envState.getAgentLocation(agent));
+			
+			if (state == LocationState.None) {
+				System.out.println("nothing here");
+			} else if (state == LocationState.Rock) {
+				System.out.println("Meh... a rock");
+			}
+			
+			
+			String currentlocation = envState.getAgentLocation(agent);
+			int nextLocation = Integer.parseInt(currentlocation) - 20;
+			
+			if (nextLocation > 0){
+				
+				envState.setLocationState(currentlocation, LocationState.None);
+				envState.setAgentLocation(agent, nextLocation + "");
+			}
+			else{
+				System.out.println("You can't turn left right now!");
+			}
+			
+		}
+		
+		if (ACTION_TURN_RIGHT == action){
+			--performance;
+			LocationState state = envState.getLocationState(envState.getAgentLocation(agent));
+			
+			if (state == LocationState.None) {
+				System.out.println("nothing here");
+			} else if (state == LocationState.Rock) {
+				System.out.println("Meh... a rock");
+			}
+			
+			
+			String currentlocation = envState.getAgentLocation(agent);
+			int nextLocation = Integer.parseInt(currentlocation) +20;
+			
+			if (nextLocation <= 300){
+				
+				envState.setLocationState(currentlocation, LocationState.None);
+				envState.setAgentLocation(agent, nextLocation + "");
+			}
+			else{
+				System.out.println("You can't turn right right now!");
+			}
 			
 		}
 		// Complete the other actions
